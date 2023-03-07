@@ -15,6 +15,7 @@ class Node{
         }
 };
 
+
     int insertAtHead(Node* &head,int d){
         Node* temp = new Node(d);
         temp -> next = head;
@@ -23,34 +24,39 @@ class Node{
         return 0;
     }
 
+    int insertAtTail(Node* &tail,int d){
+
+        Node* temp = new Node(d);
+        tail->next = temp;
+        tail = tail->next;
+
+        return 0;
+    }
+
+
     //now we have to print the linked list
     void printList(Node* &head){
-        Node* temp = head;
-        //now from while loop
-        while(temp != NULL){
-            //print the val of temp
+         Node* temp = head;
+         //while loop 
+         while(temp != NULL)
+         {
             cout<<temp->data<<" ";
             temp = temp->next;
-        }
-        cout<<endl;
-
-        return;
+         }
+         cout<<endl;
     }
 
     int main(){
 
         //this part is using by heap
-        //created a new node 
+
         Node* node1 = new Node(10);
         // cout<<node1->data<<endl;
         // cout<<node1->next<<endl;
-        
-        //now head pointed to node first
         Node* head = node1;
-       
-        insertAtHead(head,12); //this function is use to print the value of 
-        printList(head); //and then we have to print the head on the top of the linked list
-
+        Node* tail = node1;
+        insertAtTail(tail,12);
+        printList(head);
 
         return 0;
     
